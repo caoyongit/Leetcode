@@ -6,7 +6,12 @@ import java.util.HashSet;
 public class TwoPoint {
 
     public static void main(String[] args) {
-        System.out.println(validPalindrome("abc"));
+        int [] num1 = new int[]{1,2,3,0,0,0};
+        int m = 3;
+        int [] num2 = new int[]{2,5,6};
+        int n = 3;
+        merge(num1, m , num2, n);
+        Arrays.stream(num1).forEach(System.out::println);
 //        int i = 0;
 //        System.out.println(++i);
     }
@@ -95,6 +100,25 @@ public class TwoPoint {
                 return false;
             }
         }
-        return  true;
+        return true;
+    }
+
+    /**
+     * 88. Merge Sorted Array (Easy)
+     */
+    public static void merge(int[] nums1, int m, int[] nums2, int n) {
+        int idx1 = m - 1, idx2 = n - 1;
+        int idxMerge = m + n - 1;
+        while (idx2 >= 0 || idx1 >= 0) {
+            if(idx1 < 0) {
+                nums1[idxMerge--] = nums2[idx2--];
+            } else if (idx2 < 0) {
+                nums1[idxMerge--] = nums1[idx1--];
+            } else if (nums1[idx1] > nums2[idx2]) {
+                nums1[idxMerge--] = nums1[idx1--];
+            } else {
+                nums1[idxMerge--] = nums2[idx2--];
+            }
+        }
     }
 }
