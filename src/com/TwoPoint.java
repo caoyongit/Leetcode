@@ -1,19 +1,29 @@
 package com;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 public class TwoPoint {
 
     public static void main(String[] args) {
-        int [] num1 = new int[]{1,2,3,0,0,0};
+        /*int [] num1 = new int[]{1,2,3,0,0,0};
         int m = 3;
         int [] num2 = new int[]{2,5,6};
         int n = 3;
         merge(num1, m , num2, n);
-        Arrays.stream(num1).forEach(System.out::println);
+        Arrays.stream(num1).forEach(System.out::println);*/
 //        int i = 0;
 //        System.out.println(++i);
+        List<String> dictionary = new ArrayList<>();
+        dictionary.add("a");
+        dictionary.add("b");
+        dictionary.add("c");
+//        dictionary.add("plea");
+        System.out.println(findLongestWord("abpcplea", dictionary));
+
+        System.out.println("abc".compareTo("abd"));
     }
 
     /**
@@ -120,5 +130,34 @@ public class TwoPoint {
                 nums1[idxMerge--] = nums2[idx2--];
             }
         }
+    }
+
+    /**
+     * 524. Longest Word in Dictionary through Deleting (Medium)
+     */
+    public static String findLongestWord(String s, List<String> dictionary) {
+        String longestWord = "";
+        for (String target : dictionary) {
+            int L1 = longestWord.length(), L2 = target.length();
+            // 获取长度最长且字典顺序最小的字符串
+            if (L1 > L2 || (L1 == L2 && longestWord.compareTo(target) < 0)) {
+                continue;
+            }
+            if (subStr(target, s)) {
+                longestWord = target;
+            }
+        }
+        return longestWord;
+    }
+
+    private static boolean subStr(String target, String s) {
+        int i = 0, j = 0;
+        while (i < target.length() && j < s.length()) {
+            if (target.charAt(i) == s.charAt(j)) {
+                i ++;
+            }
+            j ++;
+        }
+        return  i == target.length();
     }
 }
