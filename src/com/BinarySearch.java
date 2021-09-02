@@ -16,8 +16,8 @@ public class BinarySearch {
 
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1,3,5,6};
-        System.out.println(searchInsert(nums, 0));
+        int[] nums = new int[]{1, 3, 5, 6};
+        System.out.println(searchInsert(nums, 7));
     }
 
 
@@ -87,17 +87,39 @@ public class BinarySearch {
      * 请必须使用时间复杂度为 O(log n) 的算法。
      */
     public static int searchInsert(int[] nums, int target) {
-        int left = 0,right = nums.length - 1;
+        int len = nums.length;
+        if (len == 0) {
+            return 0;
+        }
+        int left = 0, right = len;
         while (left < right) {
-            int mid = left + (right - left + 1) / 2;
+            int mid = left + (right - left) / 2;
             if (nums[mid] < target) {
-                left = mid;
+                left = mid + 1;
             } else {
-                right = mid - 1;
+                right = mid;
+            }
+        }
+        return left;
+    }
+
+    /**
+     * 34. 在排序数组中查找元素的第一个和最后一个位置
+     */
+    public int[] searchRange(int[] nums, int target) {
+        int len = nums.length;
+        if (len == 0) {
+            return new int[]{-1, -1};
+        }
+        int left = 0,right = len;
+        int [] result = new int[2];
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] == target) {
+                result[0] = mid;
             }
         }
 
-        return right + 1;
     }
 
 }
