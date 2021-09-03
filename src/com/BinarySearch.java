@@ -16,8 +16,8 @@ public class BinarySearch {
 
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 3, 5, 6};
-        System.out.println(searchInsert(nums, 7));
+        int[] nums = new int[]{3,5,6,8,9};
+        System.out.println(searchFirstElement(nums, 8));
     }
 
 
@@ -106,20 +106,48 @@ public class BinarySearch {
     /**
      * 34. 在排序数组中查找元素的第一个和最后一个位置
      */
-    public int[] searchRange(int[] nums, int target) {
+    public static int[] searchRange(int[] nums, int target) {
         int len = nums.length;
         if (len == 0) {
             return new int[]{-1, -1};
         }
-        int left = 0,right = len;
-        int [] result = new int[2];
+        int first = searchFirstElement(nums, target);
+        if (first == -1) {
+            return new int[]{-1, -1};
+        }
+        int last = searchLastElement(nums, target);
+        return new int[]{first, last};
+    }
+
+    private static int searchFirstElement(int[] nums, int target) {
+        int len = nums.length;
+        int left = 0,right = len - 1;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            if (nums[mid] == target) {
-                result[0] = mid;
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid;
             }
         }
+        if (nums[left] == target) {
+            return left;
+        }
+        return -1;
+    }
 
+    private static int searchLastElement(int[] nums, int target) {
+        int len = nums.length;
+        int left = 0,right = len - 1;
+        while (left < right) {
+            int mid = left + (right - left + 1) / 2;
+            if (nums[mid] > target) {
+                right = mid - 1;
+            } else {
+                left = mid;
+            }
+        }
+        return left;
     }
 
 }
