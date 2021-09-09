@@ -6,6 +6,7 @@
  */
 package com;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -18,8 +19,21 @@ public class BinarySearch {
 
 
     public static void main(String[] args) {
-        int[] nums = new int[]{2,2,2,0,1};
-        System.out.println(findMin(nums));
+        int[] nums = new int[]{1,1,1,0,1};
+        System.out.println(findMin2(nums));
+
+        /*int[]nums = new int[]{1,3,5,6};
+        int target = 7;
+        int left = 0, right = nums.length;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < target) {
+                left = mid + 1;
+            }  else {
+                right = mid;
+            }
+        }
+        System.out.println(left);*/
     }
 
 
