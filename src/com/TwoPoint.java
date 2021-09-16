@@ -23,8 +23,9 @@ public class TwoPoint {
 //        dictionary.add("plea");
         System.out.println(findLongestWord("abpcplea", dictionary));
 
-        int [] num2 = new int[]{1,2,1};
-        System.out.println(maxArea(num2));
+        int [] num2 = new int[]{0,1,0,3,12};
+        moveZeroes(num2);
+        Arrays.stream(num2).forEach(System.out::println);
     }
 
     /**
@@ -184,5 +185,25 @@ public class TwoPoint {
         return res;
     }
 
+    /**
+     * 283. 移动零
+     * 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
+     */
+    public static void moveZeroes(int[] nums) {
+        if (nums == null) return;
+        int n = nums.length,left = 0,right = 0;
+        while(right < n) {
+            if(nums[right] != 0) {
+                swap(nums, left, right);
+                left ++;
+            }
+            right++;
+        }
+    }
 
+    private static void swap(int[] nums, int idx1, int idx2) {
+        int temp = nums[idx1];
+        nums[idx1] = nums[idx2];
+        nums[idx2] = temp;
+    }
 }
