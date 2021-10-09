@@ -30,6 +30,9 @@ public class TwoPoint {
 
     /**
      * 167. Two Sum II - Input array is sorted (Easy)
+     * 给定一个已按照 非递减顺序排列  的整数数组 numbers ，请你从数组中找出两个数满足相加之和等于目标数 target 。
+     * 函数应该以长度为 2 的整数数组的形式返回这两个数的下标值。numbers 的下标 从 1 开始计数 ，所以答案数组应当满足 1 <= answer[0] < answer[1] <= numbers.length 。
+     * 你可以假设每个输入 只对应唯一的答案 ，而且你 不可以 重复使用相同的元素。
      *
      * @date 2021/8/27 3:39 下午
      */
@@ -54,6 +57,7 @@ public class TwoPoint {
 
     /**
      * 633. Sum of Square Numbers (Easy)
+     * 给定一个非负整数 c ，你要判断是否存在两个整数 a 和 b，使得 a2 + b2 = c 。
      */
     public static boolean judgeSquareSum(int c) {
         long i = 0, j = (long) Math.sqrt(c);
@@ -72,6 +76,9 @@ public class TwoPoint {
 
     /**
      * 345. Reverse Vowels of a String (Easy)
+     * 反转字符串中的元音字母
+     * 给你一个字符串 s ，仅反转字符串中的所有元音字母，并返回结果字符串。
+     * 元音字母包括 'a'、'e'、'i'、'o'、'u'，且可能以大小写两种形式出现。
      */
     public static String reverseVowels(String s) {
         if (s == null) return null;
@@ -95,6 +102,9 @@ public class TwoPoint {
 
     /**
      * 680. Valid Palindrome II (Easy)
+     * 验证回文字符串 Ⅱ
+     *
+     * 给定一个非空字符串 s，最多删除一个字符。判断是否能成为回文字符串。
      */
     public static boolean validPalindrome(String s) {
         if (s == null) return false;
@@ -117,6 +127,12 @@ public class TwoPoint {
 
     /**
      * 88. Merge Sorted Array (Easy)
+     * 合并两个有序数组
+     *
+     * 给你两个按 非递减顺序 排列的整数数组 nums1 和 nums2，另有两个整数 m 和 n ，分别表示 nums1 和 nums2 中的元素数目。
+     * 请你 合并 nums2 到 nums1 中，使合并后的数组同样按 非递减顺序 排列。
+     * 注意：最终，合并后数组不应由函数返回，而是存储在数组 nums1 中。为了应对这种情况，nums1 的初始长度为 m + n，其中前 m 个元素表示应合并的元素，
+     * 后 n 个元素为 0 ，应忽略。nums2 的长度为 n 。
      */
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
         int idx1 = m - 1, idx2 = n - 1;
@@ -136,6 +152,11 @@ public class TwoPoint {
 
     /**
      * 524. Longest Word in Dictionary through Deleting (Medium)
+     * 通过删除字母匹配到字典里最长单词
+     *
+     * 给你一个字符串 s 和一个字符串数组 dictionary ，找出并返回 dictionary 中最长的字符串，该字符串可以通过删除 s 中的某些字符得到。
+     * 如果答案不止一个，返回长度最长且字母序最小的字符串。如果答案不存在，则返回空字符串。
+     *
      */
     public static String findLongestWord(String s, List<String> dictionary) {
         String longestWord = "";
