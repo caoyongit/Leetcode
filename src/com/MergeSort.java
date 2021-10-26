@@ -6,6 +6,8 @@
  */
 package com;
 
+import java.util.Arrays;
+
 /**
  * 归并排序
  *
@@ -147,7 +149,7 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{7,5,6,4};
-        System.out.println(reversePairs(nums));
+        int[] nums = new int[]{7,5,9,4};
+        Arrays.stream(sortArray(nums)).forEach(i->System.out.print(i+" "));
     }
 }
